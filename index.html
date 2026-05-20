@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EasyHR - İnsan Kaynakları ve Personel Yönetim Sistemi</title>
+<meta name="description" content="EasyHR, modern insan kaynakları ve personel yönetim platformu. Aday havuzu, bordro, izin yönetimi ve daha fazlası.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background: #fafafa;
+  }
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  header {
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 18px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0066cc;
+    letter-spacing: -0.5px;
+  }
+  .nav-links a {
+    color: #555;
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 15px;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #0066cc; }
+
+  .hero {
+    background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+    color: #fff;
+    padding: 80px 0 90px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 42px;
+    font-weight: 700;
+    margin-bottom: 18px;
+    letter-spacing: -1px;
+  }
+  .hero p {
+    font-size: 19px;
+    opacity: 0.95;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .btn {
+    display: inline-block;
+    background: #fff;
+    color: #0066cc;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+  }
+
+  section {
+    padding: 70px 0;
+  }
+  .section-title {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+  }
+  .section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 17px;
+    margin-bottom: 50px;
+  }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 28px;
+  }
+  .feature {
+    background: #fff;
+    padding: 32px 28px;
+    border-radius: 12px;
+    border: 1px solid #ebebeb;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .feature:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+  }
+  .feature-icon {
+    width: 48px;
+    height: 48px;
+    background: #e8f1fc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+  .feature h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+  }
+  .feature p {
+    color: #666;
+    font-size: 15px;
+  }
+
+  .extension-section {
+    background: #fff;
+  }
+  .extension-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  .extension-content h2 {
+    font-size: 32px;
+    margin-bottom: 18px;
+    color: #1a1a1a;
+  }
+  .extension-content p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 16px;
+  }
+  .extension-content ul {
+    list-style: none;
+    margin-top: 20px;
+  }
+  .extension-content ul li {
+    padding: 8px 0;
+    color: #444;
+    padding-left: 28px;
+    position: relative;
+  }
+  .extension-content ul li:before {
+    content: "✓";
+    color: #0066cc;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 18px;
+  }
+  .extension-visual {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e1eeff 100%);
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    font-size: 80px;
+  }
+
+  footer {
+    background: #1a1a1a;
+    color: #aaa;
+    padding: 40px 0 30px;
+    text-align: center;
+  }
+  footer a {
+    color: #4d9fe8;
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer a:hover { text-decoration: underline; }
+  .copyright {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #777;
+  }
+
+  @media (max-width: 720px) {
+    .hero h1 { font-size: 32px; }
+    .hero p { font-size: 17px; }
+    .extension-content { grid-template-columns: 1fr; }
+    .nav-links a { margin-left: 14px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">EasyHR</div>
+    <nav class="nav-links">
+      <a href="#features">Özellikler</a>
+      <a href="#extension">Eklenti</a>
+      <a href="privacy/">Gizlilik</a>
+      <a href="mailto:destek@easyhr.com.tr">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Modern İnsan Kaynakları Yönetimi</h1>
+    <p>EasyHR, şirketinizin tüm insan kaynakları süreçlerini tek bir platformda toplayan bulut tabanlı bir personel yönetim sistemidir.</p>
+    <a href="mailto:destek@easyhr.com.tr" class="btn">Demo Talep Et</a>
+  </div>
+</section>
+
+<section id="features">
+  <div class="container">
+    <h2 class="section-title">Platform Özellikleri</h2>
+    <p class="section-subtitle">İK süreçlerinizi dijitalleştiren kapsamlı çözüm</p>
+    <div class="features">
+      <div class="feature">
+        <div class="feature-icon">👥</div>
+        <h3>Personel Yönetimi</h3>
+        <p>Çalışan özlük bilgileri, pozisyon yönetimi ve organizasyon şeması tek bir yerde.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">💰</div>
+        <h3>Bordro ve Maaş</h3>
+        <p>Otomatik bordro hesaplama, SGK ve vergi entegrasyonları ile zaman kazandıran çözümler.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📅</div>
+        <h3>İzin Yönetimi</h3>
+        <p>4857 sayılı İş Kanunu'na uygun yıllık izin hesaplamaları ve onay süreçleri.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎯</div>
+        <h3>Aday Havuzu (ATS)</h3>
+        <p>İşe alım süreçlerinizi yönetin, aday değerlendirmelerinizi sistematik hale getirin.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">📊</div>
+        <h3>Raporlama</h3>
+        <p>İK metrikleri, çalışan verileri ve performans göstergeleri için detaylı raporlar.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🔒</div>
+        <h3>KVKK Uyumlu</h3>
+        <p>6698 sayılı Kişisel Verilerin Korunması Kanunu'na tam uyumlu altyapı.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="extension" class="extension-section">
+  <div class="container">
+    <div class="extension-content">
+      <div>
+        <h2>EasyHR Chrome Eklentisi</h2>
+        <p>İş ilanı sitelerinde gezinirken karşılaştığınız nitelikli adayları tek tıkla EasyHR aday havuzunuza ekleyin.</p>
+        <p>Eklenti, SecretCV, LinkedIn ve diğer kariyer platformlarındaki aday profillerini hızlıca kaydetmenize olanak tanır.</p>
+        <ul>
+          <li>Tek tıkla aday profili kaydetme</li>
+          <li>Otomatik bilgi çıkarımı (ad, e-posta, telefon)</li>
+          <li>Doğrudan EasyHR aday havuzuna senkronizasyon</li>
+          <li>Güvenli HTTPS bağlantısı ile veri transferi</li>
+        </ul>
+      </div>
+      <div class="extension-visual">
+        🧩
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div>
+      <a href="privacy/">Gizlilik Politikası</a>
+      <a href="mailto:destek@easyhr.com.tr">İletişim</a>
+    </div>
+    <div class="copyright">© 2026 EasyHR. Tüm hakları saklıdır.</div>
+  </div>
+</footer>
+
+</body>
+</html>
